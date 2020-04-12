@@ -20,9 +20,10 @@
 
 ## How to do?
 
-初步的想法是分成两个部分
+初步的想法是分成~~两~~三个部分
 
 - CFG的读入与表示
+- parser-tree的结构表示
 - parser算法的实现
 
 ### CFG读入与表示
@@ -39,3 +40,26 @@ CFG主要包括上面介绍的4个部分，因此设想是在一个文件夹中�
   - 与ntrms.txt类似
 - relations.txt
   - 每一行表示一条规则，以`|-`进行分割
+
+- [x] CFG的读入与表示（20200412）
+
+### tree的表示
+
+- 采用`node(word, list(node))`这种结构来存储tree
+
+- 通过遍历tree来生成一个类似下面的list，然后利用nltk绘制tree
+
+  ```python
+  demo_list = [('root', 0), ('child1', 1), ('child2', 1)] 
+  def draw():
+    par_result = ''
+  		for node in demo_list:
+        par_result += "\t" + node[0] + "\t" + 'null' + "\t" + str(node[1]) + "\n"
+        conlltree = DependencyGraph(par_result)  
+        tree = conlltree.tree()  # 构建树结构
+        tree.draw()  # 显示输出的树
+  ```
+
+  效果如下：
+
+  <img src="imgs/tree.png" alt="tree" style="zoom:100%;" />
