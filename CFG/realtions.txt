@@ -1,0 +1,7 @@
+S|-ABC
+A|-a
+A|-aA
+B|-b
+B|-bB
+C|-c
+C|-cC
